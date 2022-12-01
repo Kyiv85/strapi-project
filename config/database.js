@@ -5,8 +5,9 @@ module.exports = ({ env }) => ({
       host: env('DATABASE_HOST', 'localhost'),
       port: env('DATABASE_PORT', 3306),
       database: env('DATABASE_NAME', 'strapidb'),
-      username: env('DATABASE_USERNAME', 'otadmin'),
+      user: env('DATABASE_USERNAME', 'otadmin'),
       password: env('DATABASE_PASSWORD', ''),
+      ssl: env.bool('DATABASE_SSL', true)
     },
     useNullAsDefault: true
   }

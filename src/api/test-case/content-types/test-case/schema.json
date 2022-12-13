@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "test_cases",
+  "info": {
+    "singularName": "test-case",
+    "pluralName": "test-cases",
+    "displayName": "TestCase",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "IsAutomated": {
+      "type": "boolean"
+    },
+    "Priority": {
+      "type": "enumeration",
+      "enum": [
+        "Low",
+        "Medium",
+        "High"
+      ]
+    },
+    "Preconditions": {
+      "type": "text"
+    },
+    "FolderId": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::folder-id.folder-id"
+    },
+    "test_plans": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::test-plan.test-plan",
+      "inversedBy": "test_cases"
+    },
+    "order": {
+      "type": "integer"
+    }
+  }
+}

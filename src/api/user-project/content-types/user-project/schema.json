@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_projects",
+  "info": {
+    "singularName": "user-project",
+    "pluralName": "user-projects",
+    "displayName": "UserProjects"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "isFavorite": {
+      "type": "boolean",
+      "default": false
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "project": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::projects.projects"
+    }
+  }
+}

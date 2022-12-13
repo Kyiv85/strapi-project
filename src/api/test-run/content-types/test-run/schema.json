@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "test_runs",
+  "info": {
+    "singularName": "test-run",
+    "pluralName": "test-runs",
+    "displayName": "TestRun"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "test_plan": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::test-plan.test-plan"
+    },
+    "Status": {
+      "type": "enumeration",
+      "enum": [
+        "pending",
+        "passed",
+        "failed"
+      ]
+    }
+  }
+}

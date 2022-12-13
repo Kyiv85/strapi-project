@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "test_plans",
+  "info": {
+    "singularName": "test-plan",
+    "pluralName": "test-plans",
+    "displayName": "TestPlan",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "test_cases": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::test-case.test-case",
+      "mappedBy": "test_plans"
+    }
+  }
+}

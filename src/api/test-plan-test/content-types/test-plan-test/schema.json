@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "test_plan_tests",
+  "info": {
+    "singularName": "test-plan-test",
+    "pluralName": "test-plan-tests",
+    "displayName": "TestPlanTest"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "TestCaseId": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::test-case.test-case"
+    },
+    "TestPlanId": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::test-plan.test-plan"
+    }
+  }
+}

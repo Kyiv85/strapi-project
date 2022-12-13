@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "test_case_steps",
+  "info": {
+    "singularName": "test-case-step",
+    "pluralName": "test-case-steps",
+    "displayName": "TestCaseStep",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Action": {
+      "type": "string"
+    },
+    "Data": {
+      "type": "text"
+    },
+    "ExpectedResult": {
+      "type": "string"
+    },
+    "Order": {
+      "type": "integer"
+    },
+    "TestCaseId": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::test-case.test-case"
+    }
+  }
+}

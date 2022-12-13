@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "folders_id",
+  "info": {
+    "singularName": "folder-id",
+    "pluralName": "folders-id",
+    "displayName": "Folder",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "projectId": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::projects.projects"
+    },
+    "parentFolderId": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::folder-id.folder-id"
+    },
+    "order": {
+      "type": "integer"
+    }
+  }
+}

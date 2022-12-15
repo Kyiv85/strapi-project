@@ -1,22 +1,25 @@
 'use strict';
 
 module.exports = async (policyContext, config, { strapi }) => {
-  //console.log(strapi.query('user', 'users-permissions').findOne({ id }, ['roles_frontend']); )
-    /*if (policyContext.state.user.role.name === 'Administrator') {
-      // Go to next policy or will reach the controller's action.
-      return true;
-    }*/
-    
-    const email = policyContext.request.query.email;
-    //TODO Add try block
+  //TODO Add try block
+  try {
     const user = await strapi.db.query('plugin::users-permissions.user').findOne({
-      where: { email: email }
+      where: { id: policyContext.state.user.id }
     });
-    const userProjects = await strapi.db.query('api::user-project.user-project').findMany();
+    const userProjects = await strapi.db.query('api::user-project.user-project').findOne({
+      where: { user: user.id },
+      populate: true,
+    });
     console.log(userProjects)
-    
+    if(userProjects !== null){
+      return true;
+    }
+  } catch (e){
+    console.log('Policy failed '+e);
     return false;
-  };
+  }
+  return false;
+};
   
   
   

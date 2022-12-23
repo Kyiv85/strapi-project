@@ -10,6 +10,9 @@ module.exports = createCoreRouter('api::projects.projects', {
     config: {
         find: {
             policies: ['user-has-project']
+        },
+        findOne: {
+            policies: ['user-has-project']
         }
     }
 });

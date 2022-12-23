@@ -30,25 +30,14 @@ module.exports = createCoreService('api::projects.projects', ({ strapi }) =>  ({
     },
 
     async getProjectByUser(id){
-      console.log('id '+id);
-      //let esto = await strapi.db.connection.raw('SELECT * FROM user_projects_user_links')
-      /*let esto = await strapi.db.query('api::user-project.user-project').findMany({
-        populate: {         
-          user: {
-            where: {
-              id: id,
-            },
-          },
+      //let rawQuery = await strapi.db.connection.raw('SELECT * FROM user_projects_user_links')
+      return await strapi.query("api::user-project.user-project").findMany({
+        where: {
+            user: id,
         },
-      });*/
-      let esto = await strapi.query("plugin::users-permissions.permission").findOne({
-        where: { id },
-        populate: true,
+        populate: { 
+            project: true,
+        },
       });
-      console.log(esto);return false;
-      /*strapi.db.query('api::user-project.user-project').find({
-        where: { user: id },
-        populate: true,
-      });*/
     }
   }));

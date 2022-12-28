@@ -9,6 +9,10 @@ module.exports = ({ env }) => ({
       password: env('DATABASE_PASSWORD', ''),
       ssl: env.bool('DATABASE_SSL', true)
     },
+    options: {
+      debug: env('DATABASE_DEBUG', false),
+      filename: "tmp/data.sql"
+    },
     useNullAsDefault: true
   }
 });

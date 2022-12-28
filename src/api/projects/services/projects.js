@@ -39,5 +39,17 @@ module.exports = createCoreService('api::projects.projects', ({ strapi }) =>  ({
             project: true,
         },
       });
+    },
+
+    async getProjectByUserAndId(idUser,idProject){
+      return await strapi.query("api::user-project.user-project").findOne({
+        where: {
+          user: idUser,
+          project: idProject
+        },
+        populate: { 
+          project: true,
+        },
+      });
     }
   }));
